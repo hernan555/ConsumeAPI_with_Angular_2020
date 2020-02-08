@@ -1,0 +1,51 @@
+<div class="container">
+  <h2 class="text-center display-4 text-primary pb-3">Our Work Team</h2>
+  <div class="card text-center" style="width: 100%;">
+      <img src="./assets/us.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+          <p class="card-text">When high-pressure events go flawlessly, it's not a bonus or a surprise; it's just another day at the office! </p>
+      </div>
+  </div>
+  <br>
+  <br>
+  <h2 class="text-success">Consumiendo empleados de api... (laravel)</h2>
+
+  <table class="table text-justify text-center table table-bordered">
+      <thead class="thead-dark text-white">
+          <tr>
+              <th scope="col">id</th>
+              <th scope="col">Name</th>
+              <th scope="col">JobTitle</th>
+              <th scope="col">description</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of employ, index as i">
+              <th scope="row">{{i+1}}</th>
+              <td>{{item.nombre}}</td>
+              <td>{{item.puesto}}</td>
+              <td>{{item.descripcion}}</td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+
+<div class="container">
+  <h2 class="text-center display-4 text-primary pb-3">Leaders of Ours Company</h2>
+
+  <div class="card-group">
+      <div class="card" *ngFor="let item of team, index as i">
+          <h5 class="card-header">{{item.skills}}</h5>
+          <img class="card-img-top" *ngIf="i==0" style=" height: 550px;" src="./assets/chiefexecutive.jpg" alt="Card image cap">
+
+          <img class="card-img-top" *ngIf="i==1" style=" height: 550px;" src="./assets/president.jpg" alt="Card image cap">
+          <div class="card-body">
+              <h5 class="card-title">{{item.name}}</h5>
+              <p class="card-text">{{item.description}}</p>
+              <a [routerLink]="['/team', i]" class="btn btn-primary">More info...</a>
+              <!-- Le paso la id a la URL /team/id -->
+              <p class="card-text"><small class="text-muted">Department of Dev.</small></p>
+          </div>
+      </div>
+  </div>
+</div>
